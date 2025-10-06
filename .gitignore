@@ -1,0 +1,5 @@
+charts/
+
+# Ignore everything in figures/ except SVG files
+figures/**/*
+!figures/**/*.svg

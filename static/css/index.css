@@ -1,0 +1,257 @@
+body {
+  font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  color: #2c3e50;
+}
+
+h2,
+h3,
+h4 {
+  color: #34495e;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+.chart {
+  width: 100%;
+  height: 400px;
+  background-color: #f0f0f0;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+code {
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.link img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 5px;
+}
+
+.link a {
+  text-decoration: none;
+}
+
+.link .icon {
+  padding-right: 5pt;
+}
+
+.university-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.university-logos img {
+  max-height: 60px;
+  margin: 0 10px;
+}
+
+.authors,
+.university {
+  margin-bottom: 0.5ex;
+  font-size: 15pt;
+}
+
+.author {
+  font-weight: bold;
+}
+
+.author + .author {
+  margin-left: 1em;
+}
+
+.university.affil-1:before {
+  content: "1";
+  font-weight: normal;
+  font-size: 10pt;
+  vertical-align: super;
+  display: inline-block;
+}
+
+.university.affil-2:before {
+  content: "2";
+  font-weight: normal;
+  font-size: 10pt;
+  vertical-align: super;
+  display: inline-block;
+  margin-left: 1em;
+}
+
+.author.affil-1:after {
+  content: "1";
+  font-weight: normal;
+  font-size: 11pt;
+  width: 0.5pt;
+  vertical-align: super;
+  display: inline-block;
+}
+
+.author.affil-2:after {
+  content: "2";
+  font-weight: normal;
+  font-size: 11pt;
+  width: 0.5pt;
+  vertical-align: super;
+  display: inline-block;
+}
+
+.button {
+  background-color: #363636;
+  border-color: #dbdbdb;
+  border-width: 1px;
+  color: #fff;
+  cursor: pointer;
+  justify-content: center;
+  padding-bottom: calc(0.5em - 1px);
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: calc(0.5em - 1px);
+  text-align: center;
+  white-space: nowrap;
+  font-size: 1rem;
+  border-radius: 290486px;
+  padding-left: calc(1em + 0.25em);
+  padding-right: calc(1em + 0.25em);
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #4a4a4a;
+}
+
+.centered {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gif_legend {
+  display: flex;
+  padding: 0 1em;
+}
+
+.gif_legend img {
+  width: 2em;
+  margin-right: 0.5em;
+}
+
+.infogeom {
+    margin: 4ex auto;
+    width: 70%;
+}
+
+.figure.lemma {
+  width: 70%;
+}
+
+.figure.plots {
+  width: 80%;
+}
+
+.figure.table {
+  width: 80%;
+}
+
+.figure + .figure {
+  margin-top: 6ex;
+}
+
+.figure {
+  display: flex;
+  justify-content: center;
+  margin: 3ex auto;
+  margin-bottom: 4ex;
+}
+
+section + section {
+  margin: 2em 0;
+  border-top: 1px solid #ddd;
+  padding-top: 1em 0;
+}
+
+.caption {
+  width: 90%;
+  margin:auto;
+  text-align: justify;
+}
+
+.triple {
+  display: flex;
+  gap: 2em;
+}
+.triple * {
+  /*width: 33%;*/
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.triple p {
+  text-align: center;
+}
+
+pre[class*="language-"] {
+  font-size: 10pt;
+  background-color: #f0f0f0;
+}
+
+code[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+pre[class*="language-"]::selection {
+  background-color: #bbbfc0;
+}
+
+.bibtex code {
+  background: none;
+  white-space: pre-wrap;
+  border: none;
+}
