@@ -237,6 +237,61 @@
         frustration that comes from an assistant completing too much.
       </p>
     </section>
+    <section>
+      <h2>Example Interactions</h2>
+
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px; max-width: 600px;">
+          <h3 style="text-align: center; margin-bottom: 1rem;">Empower</h3>
+          <video id="eta4-video" controls autoplay muted
+            style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <source src="videos/eta4.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div style="flex: 1; min-width: 300px; max-width: 600px;">
+          <h3 style="text-align: center; margin-bottom: 1rem;">Base-20</h3>
+          <video id="base20-video" controls autoplay muted
+            style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <source src="videos/base20.mov" type="video/quicktime">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+      <p>
+        These videos show the Empower assistant and the Base-20 assistant helping a user solve the Lava problem
+        (included in Appendix E.2. of the paper).
+      </p>
+      <script>
+          (function () {
+            const eta4Video = document.getElementById('eta4-video');
+            const base20Video = document.getElementById('base20-video');
+            let eta4Finished = false;
+            let base20Finished = false;
+
+            function checkAndRestart() {
+              if (eta4Finished && base20Finished) {
+                eta4Finished = false;
+                base20Finished = false;
+                eta4Video.currentTime = 0;
+                base20Video.currentTime = 0;
+                eta4Video.play();
+                base20Video.play();
+              }
+            }
+
+            eta4Video.addEventListener('ended', function () {
+              eta4Finished = true;
+              checkAndRestart();
+            });
+
+            base20Video.addEventListener('ended', function () {
+              base20Finished = true;
+              checkAndRestart();
+            });
+          })();
+      </script>
+    </section>
 
     <!-- <section>
       <h2>
