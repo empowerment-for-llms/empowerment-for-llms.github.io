@@ -148,7 +148,7 @@
         We therefore propose the following algorithm to choose completions to train our assistant on:
       </p>
       <p>
-        $$i^* = \arg \max_i \{i: -\log \hat{\pi}(\ell_{t+1:t+i} \mid \ell_{1: t}) < \eta\}.$$ </p>
+        $$i^* = \arg \max_i \{i: -\log \hat{\pi}(\ell_{n+1:n+i} \mid \ell_{1: n}) < \eta\}.$$ </p>
           <p>
             This optimization chooses the largest completion length, $i$, such that the negative log
             likelihood of that completion as judged by an LLM is below a threshold $\eta$ which we choose.
@@ -158,9 +158,9 @@
           </p>
           <p>
             During training, we first sample a program from an offline dataset, then sample a prefix to that program
-            which becomes the state $\ell_{1:t}$.
+            which becomes the state $\ell_{1:n}$.
             Any suffix is a possible completion.
-            We train on the suffix $\ell_{t+1:t+i^*}$ chosen by the above optimization.
+            We train on the suffix $\ell_{n+1:n+i^*}$ chosen by the above optimization.
             Intuitively, we are training the assistant on obvious completions -- those that the LLM thinks are likely --
             thereby leaving the human to write more impactful text in the future.
           </p>
@@ -173,16 +173,16 @@
         We use the <i>effective empowerment</i> objective, which provides a computationally-tractable alternative to the
         canonical empowerment objective.
       </p>
-      <p>$$\emp(\pih, \ell_{1:t}) \triangleq I(\ell_{t+1}^{\human}; \ell^+ \mid \ell_{1:t}).$$</p>
+      <p>$$\emp(\pih, \ell_{1:n}) \triangleq I(\ell_{n+1}^{\human}; \ell^+ \mid \ell_{1:n}).$$</p>
       We can upper-bound the empowerment with an entropy:
-      <p>$$\emp(\pih, \ell_{1:t}) \leq H(\ell_{t+1}^{\human} \mid \ell_{1:t}).$$</p>
-      If we can estimate $H(\ell_{t+1}^{\human} \mid \ell_{1:t})$, we can estimate an upper bound on the empowerment.
+      <p>$$\emp(\pih, \ell_{1:n}) \leq H(\ell_{n+1}^{\human} \mid \ell_{1:n}).$$</p>
+      If we can estimate $H(\ell_{n+1}^{\human} \mid \ell_{1:n})$, we can estimate an upper bound on the empowerment.
       We assume that a pre-trained LLM, $\hat{\pi}$, is a reasonable estimator of the entropy of the human's next
       action.
       We can then take a one-sample Monte Carlo estimate of the entropy:
-      <p>$$H(\ell_{t+1}^{\human} \mid \ell_{1:t}) \approx -\log \hat{\pi}(\ell_{t+1}^{\human} \mid \ell_{1:t}).$$</p>
+      <p>$$H(\ell_{n+1}^{\human} \mid \ell_{1:n}) \approx -\log \hat{\pi}(\ell_{n+1}^{\human} \mid \ell_{1:n}).$$</p>
       Our estimated upper bound on the empowerment becomes:
-      <p>$$\emp(\pih, \ell_{1:t}) \lessapprox -\log \hat{\pi}(\ell_{t+1}^{\human} \mid \ell_{1:t}).$$</p>
+      <p>$$\emp(\pih, \ell_{1:n}) \lessapprox -\log \hat{\pi}(\ell_{n+1}^{\human} \mid \ell_{1:n}).$$</p>
       <p>
         While this is a rough approximation of the entropy, it works well in practice for the purpose of choosing
         empowering
